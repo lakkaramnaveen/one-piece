@@ -1,0 +1,26 @@
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.walmart.ads</groupId>
+  <artifactId>ad-analytics-backend</artifactId>
+  <packaging>pom</packaging>
+
+  <modules>
+    <module>ad-ingestion-service</module>
+    <module>analytics-service</module>
+    <module>query-service</module>
+    <module>auth-service</module>
+    <module>api-gateway</module>
+  </modules>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-dependencies</artifactId>
+        <version>3.3.0</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+</project>
