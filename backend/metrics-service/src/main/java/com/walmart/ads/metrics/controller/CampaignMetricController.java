@@ -1,4 +1,4 @@
-package com.walmart.ads.metrics_service.controller;
+package com.walmart.ads.metrics.controller;
 
 import java.util.List;
 
@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.walmart.ads.metrics_service.domain.CampaignMetric;
-import com.walmart.ads.metrics_service.dto.CampaignMetricRequest;
-import com.walmart.ads.metrics_service.dto.CampaignMetricResponse;
-import com.walmart.ads.metrics_service.service.CampaignMetricService;
+import com.walmart.ads.metrics.domain.CampaignMetric;
+import com.walmart.ads.metrics.dto.CampaignMetricRequest;
+import com.walmart.ads.metrics.dto.CampaignMetricResponse;
+import com.walmart.ads.metrics.service.CampaignMetricService;
 
 import jakarta.validation.Valid;
 

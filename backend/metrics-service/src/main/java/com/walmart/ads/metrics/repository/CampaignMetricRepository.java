@@ -1,11 +1,11 @@
-package com.walmart.ads.metrics_service.repository;
+package com.walmart.ads.metrics.repository;
 
 import java.util.List;
 import java.util.UUID;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.walmart.ads.metrics_service.domain.CampaignMetric;
+import com.walmart.ads.metrics.domain.CampaignMetric;
 
 public interface CampaignMetricRepository
         extends JpaRepository<CampaignMetric, UUID> {

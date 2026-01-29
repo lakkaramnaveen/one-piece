@@ -1,4 +1,4 @@
-package com.walmart.ads.metrics_service.dto;
+package com.walmart.ads.metrics.dto;
 
 import java.time.LocalDate;
 

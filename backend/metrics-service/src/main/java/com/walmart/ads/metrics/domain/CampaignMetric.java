@@ -1,4 +1,4 @@
-package com.walmart.ads.metrics_service.domain;
+package com.walmart.ads.metrics.domain;
 
 import java.time.LocalDate;
 import java.util.UUID;

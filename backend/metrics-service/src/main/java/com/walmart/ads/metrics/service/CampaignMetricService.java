@@ -1,12 +1,12 @@
-package com.walmart.ads.metrics_service.service;
+package com.walmart.ads.metrics.service;
 
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.walmart.ads.metrics_service.domain.CampaignMetric;
-import com.walmart.ads.metrics_service.dto.CampaignMetricRequest;
-import com.walmart.ads.metrics_service.repository.CampaignMetricRepository;
+import com.walmart.ads.metrics.domain.CampaignMetric;
+import com.walmart.ads.metrics.dto.CampaignMetricRequest;
+import com.walmart.ads.metrics.repository.CampaignMetricRepository;
 
 @Service
 public class CampaignMetricService {
