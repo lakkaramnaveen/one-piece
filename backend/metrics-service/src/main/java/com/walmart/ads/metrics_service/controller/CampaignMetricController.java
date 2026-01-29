@@ -10,7 +10,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.walmart.ads.metrics_service.domain.CampaignMetric;
+import com.walmart.ads.metrics_service.dto.CampaignMetricRequest;
+import com.walmart.ads.metrics_service.dto.CampaignMetricResponse;
 import com.walmart.ads.metrics_service.service.CampaignMetricService;
+
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/api/metrics")
@@ -22,14 +26,35 @@ public class CampaignMetricController {
         this.service = service;
     }
 
-    @PostMapping
-    public CampaignMetric create(@RequestBody CampaignMetric metric) {
-        return service.save(metric);
-    }
-
     @GetMapping("/{campaignId}")
-    public List<CampaignMetric> getByCampaign(
-            @PathVariable String campaignId) {
-        return service.getByCampaignId(campaignId);
-    }
+public List<CampaignMetricResponse> getByCampaign(
+        @PathVariable String campaignId) {
+
+    return service.getByCampaignId(campaignId)
+            .stream()
+            .map(m -> new CampaignMetricResponse(
+                    m.getId(),
+                    m.getCampaignId(),
+                    m.getImpressions(),
+                    m.getClicks(),
+                    m.getSpend(),
+                    m.getDate()))
+            .toList();
+}
+
+
+    @PostMapping public CampaignMetricResponse create( @Valid @RequestBody CampaignMetricRequest request) {
+
+    CampaignMetric saved = service.save(request);
+
+    return new CampaignMetricResponse(
+            saved.getId(),
+            saved.getCampaignId(),
+            saved.getImpressions(),
+            saved.getClicks(),
+            saved.getSpend(),
+            saved.getDate()
+    );
+}
+
 }
