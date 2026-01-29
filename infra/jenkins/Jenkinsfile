@@ -1,0 +1,20 @@
+pipeline {
+  agent any
+  stages {
+    stage('Checkout') {
+      steps { checkout scm }
+    }
+    stage('Backend Tests') {
+      steps { sh 'cd backend && mvn clean verify' }
+    }
+    stage('Frontend Tests') {
+      steps { sh 'cd frontend/dashboard-app && npm ci && npm test' }
+    }
+    stage('Build Docker Images') {
+      steps { sh './infra/docker/build-all.sh' }
+    }
+    stage('Deploy to K8s') {
+      steps { sh 'kubectl apply -f infra/k8s/' }
+    }
+  }
+}
